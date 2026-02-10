@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign docs = site.pages | concat: site.posts %}
+  {% for doc in docs %}
+    {% unless doc.url contains '/404' %}
+    {% unless doc.url contains '/assets/' %}
+  <url>
+    <loc>{{ site.url }}{{ doc.url | relative_url }}</loc>
+    <lastmod>{% if doc.date %}{{ doc.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</lastmod>
+  </url>
+    {% endunless %}
+    {% endunless %}
+  {% endfor %}
+</urlset>
