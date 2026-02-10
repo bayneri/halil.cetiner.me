@@ -1,0 +1,36 @@
+---
+layout: page
+title: Notes
+permalink: /notes/
+pagination:
+  enabled: true
+---
+<p class="section-note">A running stream of essays, scribbles, stories, and poems.</p>
+
+<div class="post-list">
+  {% for post in paginator.posts %}
+    <article class="post-card">
+      <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+    </article>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+  <nav class="pager" aria-label="Notes pagination">
+    {% if paginator.previous_page %}
+      <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}">← newer</a>
+    {% else %}
+      <span class="pager-link is-disabled">← newer</span>
+    {% endif %}
+
+    <span class="pager-index">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+      <a class="pager-link" href="{{ paginator.next_page_path | relative_url }}">older →</a>
+    {% else %}
+      <span class="pager-link is-disabled">older →</span>
+    {% endif %}
+  </nav>
+{% endif %}

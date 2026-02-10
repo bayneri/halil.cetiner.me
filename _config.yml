@@ -1,0 +1,23 @@
+title: "Halil Cetiner"
+description: "Software Engineer at Meta"
+url: "https://halil.cetiner.me"
+baseurl: ""
+permalink: /:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-gist
+  - jemoji
+  - jekyll-paginate-v2
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: /page/:num/
+  sort_reverse: true
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

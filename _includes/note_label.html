@@ -1,0 +1,9 @@
+{% assign label = 'scribble' %}
+{% if include.post.tag contains 'poem' %}
+  {% assign label = 'poem' %}
+{% elsif include.post.tag contains 'story' %}
+  {% assign label = 'story' %}
+{% elsif include.post.category == 'blog' %}
+  {% assign label = 'essay' %}
+{% endif %}
+{{ label }}

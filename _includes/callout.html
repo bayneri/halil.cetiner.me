@@ -1,0 +1,4 @@
+<div class="callout callout-{{ include.type | default: 'note' }}">
+  {% if include.title %}<strong>{{ include.title }}</strong>{% endif %}
+  <p>{{ include.content }}</p>
+</div>

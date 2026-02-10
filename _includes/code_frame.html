@@ -1,0 +1,7 @@
+<div class="code-frame">
+  <div class="code-frame-head">
+    <span>{{ include.title | default: 'Snippet' }}</span>
+    {% if include.lang %}<span>{{ include.lang }}</span>{% endif %}
+  </div>
+  <pre><code>{{ include.code }}</code></pre>
+</div>

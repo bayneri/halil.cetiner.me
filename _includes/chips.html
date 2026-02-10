@@ -1,0 +1,6 @@
+<div class="chips">
+  {% assign list = include.items | split: ',' %}
+  {% for item in list %}
+    <span class="chip">{{ item | strip }}</span>
+  {% endfor %}
+</div>

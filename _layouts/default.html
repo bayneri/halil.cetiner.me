@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/images/favicon/apple-touch-icon-152x152.png' | relative_url }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}" />
+    <link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | relative_url }}" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved || (systemDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 140 | default: site.description }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="container nav">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <div class="nav-links">
+          <a href="{{ '/notes/' | relative_url }}">notes</a>
+          <a href="{{ '/about/' | relative_url }}">about</a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container content">
+      {{ content }}
+    </main>
+
+    <footer class="container site-footer">
+      <div class="footer-row">
+        <p>© {{ "now" | date: "%Y" }} {{ site.title }}</p>
+        <div class="social-links">
+          <a href="https://x.com/bayneri" target="_blank" rel="noreferrer">X</a>
+          <a href="https://www.linkedin.com/in/cetinerhalil" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/bayneri" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:halil@cetiner.me">Email</a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var key = "theme";
+        var root = document.documentElement;
+        var btn = document.getElementById("theme-toggle");
+        var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function systemTheme() {
+          return mq.matches ? "dark" : "light";
+        }
+
+        function apply(theme) {
+          root.setAttribute("data-theme", theme);
+          if (!btn) return;
+          var next = theme === "dark" ? "light" : "dark";
+          btn.setAttribute("aria-label", "Switch to " + next + " mode");
+          var icon = btn.querySelector(".theme-icon");
+          if (icon) {
+            icon.setAttribute("data-theme", theme);
+          }
+        }
+
+        var saved = localStorage.getItem(key);
+        apply(saved || systemTheme());
+
+        if (btn) {
+          btn.addEventListener("click", function () {
+            var current = root.getAttribute("data-theme") || systemTheme();
+            var next = current === "dark" ? "light" : "dark";
+            localStorage.setItem(key, next);
+            apply(next);
+          });
+        }
+
+        mq.addEventListener("change", function () {
+          if (!localStorage.getItem(key)) {
+            apply(systemTheme());
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
