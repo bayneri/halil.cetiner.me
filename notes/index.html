@@ -8,7 +8,8 @@ pagination:
 <p class="section-note">A running stream of essays, scribbles, stories, and poems.</p>
 
 <div class="post-list">
-  {% for post in paginator.posts %}
+  {% assign notes_feed = paginator.posts | default: site.posts %}
+  {% for post in notes_feed %}
     <article class="post-card">
       <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -17,7 +18,7 @@ pagination:
   {% endfor %}
 </div>
 
-{% if paginator.total_pages > 1 %}
+{% if paginator and paginator.total_pages > 1 %}
   <nav class="pager" aria-label="Notes pagination">
     {% if paginator.previous_page %}
       <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}">← newer</a>
