@@ -15,6 +15,18 @@ pagination:
   per_page: 5
   permalink: /page/:num/
   sort_reverse: true
+autopages:
+  enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+  tags:
+    enabled: true
+    layouts:
+      - autopage_tag.html
+    title: ":tag"
+    permalink: "/tag/:tag/"
 defaults:
   - scope:
       path: ""

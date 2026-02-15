@@ -5,7 +5,7 @@ date: 2023-11-24 20-24
 image: 
 headerImage: false
 tag:
-- words
+- scribble
 - confidence
 - courage
 category: words
@@ -25,8 +25,8 @@ Of course, it's easier to be brave once you've established a foundational layer 
 When I was looking online, I came across a really [good article](https://hbr.org/2022/12/choose-courage-over-confidence) on this topic at HBR
 <blockquote cite="https://hbr.org/2022/12/choose-courage-over-confidence">
   <p>1) Don’t underestimate the impact of small, yet significant, acts of courage.<br>
-  2) Practice courageous acts in all areas of your life.<br>
-  3) Try again tomorrow.</p>
+  1) Practice courageous acts in all areas of your life.<br>
+  2) Try again tomorrow.</p>
 </blockquote>
 
 ---

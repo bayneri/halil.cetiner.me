@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="page">
+  <h1>#{{ page.autopage.display_name }}</h1>
+  <p class="section-note">Notes tagged with this topic.</p>
+
+  <div class="post-list">
+    {% assign tag_posts = paginator.posts | default: site.tags[page.autopage.display_name] %}
+    {% for post in tag_posts %}
+      <article class="post-card">
+        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if paginator and paginator.total_pages > 1 %}
+    <nav class="pager" aria-label="Tag pagination">
+      {% if paginator.previous_page %}
+        <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}">← newer</a>
+      {% else %}
+        <span class="pager-link is-disabled">← newer</span>
+      {% endif %}
+
+      <span class="pager-index">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+      {% if paginator.next_page %}
+        <a class="pager-link" href="{{ paginator.next_page_path | relative_url }}">older →</a>
+      {% else %}
+        <span class="pager-link is-disabled">older →</span>
+      {% endif %}
+    </nav>
+  {% endif %}
+</article>

@@ -131,6 +131,29 @@ a {
   text-underline-offset: 0.16em;
 }
 
+/* Editorial-style content links: dotted underline by default */
+.content a {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 3px;
+  text-decoration-color: color-mix(in srgb, var(--muted) 70%, transparent);
+}
+
+.content a:hover {
+  text-decoration-style: solid;
+  text-decoration-color: var(--accent);
+}
+
+/* Keep navigational/action links clean */
+.nav a,
+.nav .theme-toggle,
+.btn,
+.pager-link,
+.post-nav-link,
+.notes-compact a {
+  text-decoration: none;
+}
+
 .page > p,
 .post > p,
 .post > ul,
@@ -298,6 +321,44 @@ a {
 .post pre code {
   background: transparent;
   padding: 0;
+}
+
+.post-end {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.post-end-block {
+  border-top: 1px solid var(--line);
+  padding-top: 0.7rem;
+}
+
+.post-end-label {
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.post-tags a {
+  font-size: 0.76rem;
+  color: var(--muted);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+}
+
+.post-tags a:hover {
+  color: var(--accent);
+  text-decoration-style: solid;
 }
 
 .post-nav {

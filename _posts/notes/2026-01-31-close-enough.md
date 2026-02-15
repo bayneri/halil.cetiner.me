@@ -5,7 +5,6 @@ date: 2026-01-31 23:50
 image: 
 headerImage: false
 tag:
-- words
 - poem
 category: words
 author: bayneri

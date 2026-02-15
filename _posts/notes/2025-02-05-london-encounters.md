@@ -5,7 +5,6 @@ date: 2025-02-05 02:24
 image: 
 headerImage: false
 tag:
-- words
 - story
 category: words
 author: bayneri

@@ -15,6 +15,18 @@ layout: default
 
   {{ content }}
 
+  <section class="post-end">
+    {% if page.tag and page.tag.size > 0 %}
+      <div class="post-end-block">
+        <div class="post-tags">
+          {% for item in page.tag %}
+            <a href="{{ '/tag/' | append: item | append: '/' | uri_escape | relative_url }}">#{{ item }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
   <nav class="post-nav" aria-label="Note navigation">
     {% if page.previous.url %}
       <a class="post-nav-link post-nav-newer" href="{{ page.previous.url | relative_url }}">

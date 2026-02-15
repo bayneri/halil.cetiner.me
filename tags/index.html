@@ -1,0 +1,18 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+<p class="section-note">Browse notes by tag.</p>
+
+<ul class="notes-compact">
+  {% assign tags_sorted = site.tags | sort %}
+  {% for tag in tags_sorted %}
+    {% assign tag_name = tag[0] %}
+    {% assign tag_posts = tag[1] %}
+    <li>
+      <a href="{{ '/tag/' | append: tag_name | append: '/' | uri_escape | relative_url }}">#{{ tag_name }}</a>
+      <span class="post-meta"> · {{ tag_posts.size }}</span>
+    </li>
+  {% endfor %}
+</ul>
