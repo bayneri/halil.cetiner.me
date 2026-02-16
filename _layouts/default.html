@@ -17,7 +17,19 @@
       })();
     </script>
     {% assign page_title = page.title | default: site.title %}
-    {% assign page_description = page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description %}
+    {% assign page_description_source = page.description | default: page.excerpt | default: site.description %}
+    {% assign page_description = page_description_source
+      | markdownify
+      | replace: '</p>', ' '
+      | replace: '<p>', ' '
+      | replace: '<br />', ' '
+      | replace: '<br>', ' '
+      | strip_html
+      | strip_newlines
+      | replace: '  ', ' '
+      | replace: '  ', ' '
+      | strip
+      | truncate: 160 %}
     {% if page.og_image %}
       {% assign social_image = page.og_image %}
     {% elsif page.layout == "post" and page.slug %}
