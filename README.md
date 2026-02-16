@@ -49,3 +49,12 @@ bundle exec jekyll build
 ```
 
 Output is generated into `/_site/` (ignored by git).
+
+## Social Images
+- OG/Twitter images are generated for every post into `/assets/images/og/`.
+- Run manually:
+```bash
+npm install
+npm run og:generate
+```
+- CI runs this automatically before `jekyll build` in `/.github/workflows/deploy.yml`.

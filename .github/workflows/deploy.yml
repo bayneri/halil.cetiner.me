@@ -21,6 +21,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install OG generator deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Generate social images
+        run: npm run og:generate
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

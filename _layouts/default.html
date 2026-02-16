@@ -16,8 +16,29 @@
         document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
+    {% assign page_title = page.title | default: site.title %}
+    {% assign page_description = page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description %}
+    {% if page.og_image %}
+      {% assign social_image = page.og_image %}
+    {% elsif page.layout == "post" and page.slug %}
+      {% assign social_image = "/assets/images/og/" | append: page.slug | append: ".png" %}
+    {% else %}
+      {% assign social_image = "/assets/images/og/default.png" %}
+    {% endif %}
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 140 | default: site.description }}" />
+    <meta name="description" content="{{ page_description }}" />
+    <meta property="og:type" content="{% if page.layout == "post" %}article{% else %}website{% endif %}" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ page_description }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:image" content="{{ social_image | absolute_url }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ page_title }}" />
+    <meta name="twitter:description" content="{{ page_description }}" />
+    <meta name="twitter:image" content="{{ social_image | absolute_url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
   </head>
   <body>

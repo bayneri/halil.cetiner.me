@@ -2,3 +2,6 @@ _site/
 .jekyll-cache/
 .bundle/
 .DS_Store
+node_modules/
+assets/images/og/*.png
+!assets/images/og/.gitkeep
