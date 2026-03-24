@@ -2,8 +2,7 @@
 title: "Reliability Theatre"
 layout: post
 date: 2026-03-10 16:30
-image: /assets/images/reliability_theatre.png
-headerImage: true
+headerImage: false
 tag:
 - reliability
 - systems-thinking
