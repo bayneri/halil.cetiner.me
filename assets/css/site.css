@@ -162,6 +162,36 @@ a {
   max-width: 68ch;
 }
 
+.post > h2::before,
+.post > h3::before,
+.post > h4::before,
+.post > h5::before,
+.post > h6::before {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  color: var(--muted);
+  margin-right: 0.45rem;
+}
+
+.post > h2::before {
+  content: "##";
+}
+
+.post > h3::before {
+  content: "###";
+}
+
+.post > h4::before {
+  content: "####";
+}
+
+.post > h5::before {
+  content: "#####";
+}
+
+.post > h6::before {
+  content: "######";
+}
+
 .eyebrow {
   margin: 0 0 0.7rem;
   color: var(--muted);
