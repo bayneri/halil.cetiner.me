@@ -3,11 +3,9 @@ layout: page
 title: About
 permalink: /about/
 ---
-I'm Halil Cetiner, also known as [bayneri](https://www.x.com/bayneri).
+I'm Halil Cetiner, also known as [bayneri](https://www.x.com/bayneri). I'm a software engineer based in London, and I currently work at [OpenAI](https://openai.com/).
 
-I'm a software engineer based in London.
-
-I currently work at [Meta](https://about.facebook.com/), focused on reliability engineering: SLO monitoring, reliability programs, and the systems around them. Before this, I worked on experimentation infrastructure and ads performance systems at Meta.
+Before joining OpenAI, I worked at [Meta](https://about.facebook.com/), focused on reliability engineering: SLO monitoring, reliability programs, and the systems around them. Before that, I worked on experimentation infrastructure and ads performance systems at Meta.
 
 Before joining Meta, I worked at Yelp on high-throughput logging and streaming pipelines built on Apache Kafka.
 
