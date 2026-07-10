@@ -47,3 +47,5 @@ Heraclitus said<br>
 you know nothing, Jon Snow<br>
 nothing can be known<br>
 </p>
+
+<p><small><em>I jotted this down on Caltrain, while away from home and family for a few weeks. I don’t remember what was on my mind at the time, but it feels relevant again.</em></small></p>
