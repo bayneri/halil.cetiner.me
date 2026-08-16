@@ -2,8 +2,8 @@
 title: "Today's Poem"
 layout: post
 date: 2023-06-05 23:30
-image: 
-headerImage: false
+image: /assets/images/notes/heroes/todays-poem.jpg
+headerImage: true
 tag:
 - poem
 category: words

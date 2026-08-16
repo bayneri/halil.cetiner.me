@@ -2,8 +2,8 @@
 title: "Confidence or Courage, which comes first?"
 layout: post
 date: 2023-11-24 20-24
-image: 
-headerImage: false
+image: /assets/images/notes/heroes/confidence-or-courage.jpg
+headerImage: true
 tag:
 - scribble
 - confidence

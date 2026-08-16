@@ -2,8 +2,8 @@
 title: "Reliability: Finding Your Marathon Pace"
 layout: post
 date: 2025-02-23 22:48
-image: /assets/images/slo_availability_table.png
-headerImage: false
+image: /assets/images/notes/heroes/finding-your-pace.jpg
+headerImage: true
 tag:
 - reliability
 - service level objectives

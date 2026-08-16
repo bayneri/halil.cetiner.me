@@ -10,10 +10,17 @@ pagination:
 <div class="post-list">
   {% assign notes_feed = paginator.posts | default: site.posts %}
   {% for post in notes_feed %}
-    <article class="post-card">
-      <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+    <article class="post-row">
+      {% if post.image %}
+        <a class="post-row-image-link" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+          <img class="post-row-image" src="{{ post.image | relative_url }}" alt="" loading="lazy" />
+        </a>
+      {% endif %}
+      <div class="post-row-body">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
+      </div>
     </article>
   {% endfor %}
 </div>

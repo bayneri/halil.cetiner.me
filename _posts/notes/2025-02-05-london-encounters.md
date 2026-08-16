@@ -2,8 +2,8 @@
 title: "London Encounters"
 layout: post
 date: 2025-02-05 02:24
-image: 
-headerImage: false
+image: /assets/images/notes/heroes/london-encounters.jpg
+headerImage: true
 tag:
 - story
 category: words

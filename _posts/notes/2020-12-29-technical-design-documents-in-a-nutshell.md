@@ -2,7 +2,7 @@
 title: "Technical Design Documents in a Nutshell"
 layout: post
 date: 2020-12-29 00:00
-image: /assets/images/baby-and-a-laptop.jpeg
+image: /assets/images/notes/heroes/technical-design-documents-in-a-nutshell.jpg
 headerImage: true
 tag:
 - technical-design

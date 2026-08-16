@@ -51,8 +51,9 @@ bundle exec jekyll build
 Output is generated into `/_site/` (ignored by git).
 
 ## Social Images
-- OG/Twitter images are generated for every post into `/assets/images/og/`.
-- Run manually:
+- Post OG/Twitter cards combine each hero artwork with its title and date.
+- A text-based fallback card is generated for pages without hero artwork.
+- Generate the cards manually:
 ```bash
 npm install
 npm run og:generate

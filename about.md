@@ -3,18 +3,15 @@ layout: page
 title: About
 permalink: /about/
 ---
-I'm Halil Cetiner, also known as [bayneri](https://www.x.com/bayneri). I'm a software engineer based in London, and I currently work at [OpenAI](https://openai.com/).
+<p class="about-hello">Hi.</p>
 
-Before joining OpenAI, I worked at [Meta](https://about.facebook.com/), focused on reliability engineering: SLO monitoring, reliability programs, and the systems around them. Before that, I worked on experimentation infrastructure and ads performance systems at Meta.
+I'm Halil Cetiner. I'm a software engineer based in London.
 
-Before joining Meta, I worked at Yelp on high-throughput logging and streaming pipelines built on Apache Kafka.
+I'm interested in distributed systems, practical engineering, and building software that behaves well under pressure. This site is not only about software, though. I write about things I notice, ideas I want to keep, and sometimes simply to express what I feel in different forms. That is why I call this collection Notes.
 
-I’m most interested in distributed systems, practical engineering, and building software that behaves well under pressure.
+Outside work, I enjoy walking around London, with or without a camera, and spending time with my toddler daughter and lovely wife. I also write down some of what catches my attention. I do not publish on a schedule. I put something here when it feels worth keeping.
 
-Outside day-to-day work, I write here in different formats: essays, scribbles, stories, and poems.
+The most direct way to reach me is [email](mailto:halil@cetiner.me). You can also find me elsewhere:
 
-## Contact
-- [X](https://www.x.com/bayneri)
-- [LinkedIn](https://www.linkedin.com/in/cetinerhalil)
-- [GitHub](https://github.com/bayneri)
-- [Email](mailto:halil@cetiner.me)
+- For short updates and stray thoughts, [follow me on X](https://www.x.com/bayneri).
+- For my professional background and work history, [visit LinkedIn](https://www.linkedin.com/in/cetinerhalil).

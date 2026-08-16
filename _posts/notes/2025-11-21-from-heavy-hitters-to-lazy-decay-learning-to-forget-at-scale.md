@@ -2,7 +2,7 @@
 title: "From Heavy Hitters to Lazy Decay: Learning to Forget at Scale"
 layout: post
 date: 2025-11-21 00:44
-image: /assets/images/notes/heavy-hitters/header.jpg
+image: /assets/images/notes/heroes/from-heavy-hitters-to-lazy-decay-learning-to-forget-at-scale.jpg
 headerImage: true
 tag:
 - reliability

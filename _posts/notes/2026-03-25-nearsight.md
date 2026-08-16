@@ -2,7 +2,7 @@
 title: "I Tried to Invent a Better Replication Policy. It Failed."
 layout: post
 date: 2026-03-25 15:30
-image: /assets/images/notes/nearsight/nearsight_replication.png
+image: /assets/images/notes/heroes/nearsight.jpg
 headerImage: true
 tag:
 - distributed-systems

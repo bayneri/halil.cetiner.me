@@ -2,7 +2,7 @@
 title: "What is Parkinson's Law and how to overcome it?"
 layout: post
 date: 2022-07-15 19:31
-image: /assets/images/project-deadline.jpg
+image: /assets/images/notes/heroes/parkinsons-law.jpg
 headerImage: true
 tag:
 - project-management

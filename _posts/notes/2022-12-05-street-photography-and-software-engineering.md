@@ -2,8 +2,8 @@
 title: "Similarities Between Street Photography and Software Engineering"
 layout: post
 date: 2022-12-05 23:10
-image: /assets/images/sp-challenge.jpg
-headerImage: false
+image: /assets/images/notes/heroes/street-photography-and-software-engineering.jpg
+headerImage: true
 tag:
 - street-photography
 - photography

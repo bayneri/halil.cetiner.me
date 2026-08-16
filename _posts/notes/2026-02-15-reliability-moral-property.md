@@ -2,7 +2,8 @@
 title: "Why Reliability Is a Moral Property"
 layout: post
 date: 2026-02-15 23:29
-headerImage: false
+image: /assets/images/notes/heroes/reliability-moral-property.jpg
+headerImage: true
 tag:
 - reliability
 - systems-thinking

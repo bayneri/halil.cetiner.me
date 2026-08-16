@@ -2,8 +2,8 @@
 title: "Close Enough"
 layout: post
 date: 2026-01-31 23:50
-image: 
-headerImage: false
+image: /assets/images/notes/heroes/close-enough.jpg
+headerImage: true
 tag:
 - poem
 category: words

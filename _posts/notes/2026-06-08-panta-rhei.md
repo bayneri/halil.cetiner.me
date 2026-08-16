@@ -2,8 +2,8 @@
 title: "panta rhei"
 layout: post
 date: 2026-06-08 00:00
-image:
-headerImage: false
+image: /assets/images/notes/heroes/panta-rhei.jpg
+headerImage: true
 tag:
 - poem
 category: words
