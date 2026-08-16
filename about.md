@@ -2,8 +2,9 @@
 layout: page
 title: About
 permalink: /about/
+page_class: about-page
 ---
-<p class="about-hello">Hi.</p>
+Hi,
 
 I'm Halil Cetiner. I'm a software engineer based in London.
 
