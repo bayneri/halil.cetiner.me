@@ -1,0 +1,15 @@
+{% if paginator and paginator.total_pages > 1 %}
+  <nav class="pager" aria-label="{{ include.label | default: 'Notes pagination' }}">
+    {% if paginator.previous_page %}
+      <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}" rel="prev">Newer notes</a>
+    {% else %}
+      <span class="pager-link is-disabled">Newer notes</span>
+    {% endif %}
+    <span class="pager-index">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="pager-link" href="{{ paginator.next_page_path | relative_url }}" rel="next">Older notes</a>
+    {% else %}
+      <span class="pager-link is-disabled">Older notes</span>
+    {% endif %}
+  </nav>
+{% endif %}

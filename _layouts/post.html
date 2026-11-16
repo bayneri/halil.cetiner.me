@@ -2,25 +2,30 @@
 layout: default
 ---
 <article class="post">
+  {% assign words = content | strip_html | number_of_words %}
+  {% assign minutes = words | divided_by: 220.0 | ceil %}
+  <header class="post-header">
+    <p class="eyebrow"><a href="{{ '/notes/' | relative_url }}">Notes</a><span aria-hidden="true"> / </span>{% include note_label.html post=page %}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time><span aria-hidden="true"> · </span>{{ minutes }} min read</p>
+  </header>
+
   {% if page.image and page.headerImage %}
     <figure class="post-image-wrap">
-      <img class="post-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}" />
+      <img class="post-image" src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" />
     </figure>
   {% endif %}
 
-  {% assign words = content | strip_html | number_of_words %}
-  {% assign minutes = words | divided_by: 220.0 | ceil %}
-  <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=page %}</span> · {{ words }} words · {{ minutes }} min read</p>
-  <h1>{{ page.title }}</h1>
-
-  {{ content }}
+  <div class="post-body">
+    {{ content }}
+  </div>
 
   <section class="post-end">
     {% if page.tag and page.tag.size > 0 %}
       <div class="post-end-block">
         <div class="post-tags">
           {% for item in page.tag %}
-            <a href="{{ '/tag/' | append: item | append: '/' | uri_escape | relative_url }}">#{{ item }}</a>
+            <a href="{{ '/tag/' | append: item | append: '/' | uri_escape | relative_url }}">{{ item }}</a>
           {% endfor %}
         </div>
       </div>
@@ -30,26 +35,16 @@ layout: default
   <nav class="post-nav" aria-label="Note navigation">
     {% if page.next.url %}
       <a class="post-nav-link post-nav-newer" href="{{ page.next.url | relative_url }}">
-        <span class="post-nav-label">newer</span>
+        <span class="post-nav-label">Newer note</span>
         <span>{{ page.next.title }}</span>
       </a>
-    {% else %}
-      <span class="post-nav-link is-disabled">
-        <span class="post-nav-label">newer</span>
-        <span>none</span>
-      </span>
     {% endif %}
 
     {% if page.previous.url %}
       <a class="post-nav-link post-nav-older" href="{{ page.previous.url | relative_url }}">
-        <span class="post-nav-label">older</span>
+        <span class="post-nav-label">Older note</span>
         <span>{{ page.previous.title }}</span>
       </a>
-    {% else %}
-      <span class="post-nav-link is-disabled">
-        <span class="post-nav-label">older</span>
-        <span>none</span>
-      </span>
     {% endif %}
   </nav>
 </article>

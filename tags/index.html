@@ -11,8 +11,8 @@ permalink: /tags/
     {% assign tag_name = tag[0] %}
     {% assign tag_posts = tag[1] %}
     <li>
-      <a href="{{ '/tag/' | append: tag_name | append: '/' | uri_escape | relative_url }}">#{{ tag_name }}</a>
-      <span class="post-meta"> · {{ tag_posts.size }}</span>
+      <a href="{{ '/tag/' | append: tag_name | append: '/' | uri_escape | relative_url }}">{{ tag_name }}</a>
+      <span class="post-meta">{{ tag_posts.size }} {% if tag_posts.size == 1 %}note{% else %}notes{% endif %}</span>
     </li>
   {% endfor %}
 </ul>

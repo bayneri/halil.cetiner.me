@@ -2,43 +2,14 @@
 layout: page
 title: Notes
 permalink: /notes/
+page_class: notes-page
 pagination:
   enabled: true
 ---
 <p class="section-note">A running stream of essays, scribbles, stories, and poems.</p>
 
-<div class="post-list">
-  {% assign notes_feed = paginator.posts | default: site.posts %}
-  {% for post in notes_feed %}
-    <article class="post-row">
-      {% if post.image %}
-        <a class="post-row-image-link" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-          <img class="post-row-image" src="{{ post.image | relative_url }}" alt="" loading="lazy" />
-        </a>
-      {% endif %}
-      <div class="post-row-body">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · <span class="note-label">{% include note_label.html post=post %}</span></p>
-      </div>
-    </article>
-  {% endfor %}
-</div>
+{% assign notes_feed = paginator.posts | default: site.posts %}
+{% include note_list.html posts=notes_feed %}
+{% include pagination.html %}
 
-{% if paginator and paginator.total_pages > 1 %}
-  <nav class="pager" aria-label="Notes pagination">
-    {% if paginator.previous_page %}
-      <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}">← newer</a>
-    {% else %}
-      <span class="pager-link is-disabled">← newer</span>
-    {% endif %}
-
-    <span class="pager-index">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-    {% if paginator.next_page %}
-      <a class="pager-link" href="{{ paginator.next_page_path | relative_url }}">older →</a>
-    {% else %}
-      <span class="pager-link is-disabled">older →</span>
-    {% endif %}
-  </nav>
-{% endif %}
+<p class="archive-topics"><a href="{{ '/tags/' | relative_url }}">Browse by topic</a></p>

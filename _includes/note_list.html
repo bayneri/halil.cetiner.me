@@ -1,0 +1,14 @@
+<div class="post-list">
+  {% for post in include.posts %}
+    <article class="post-row">
+      <time class="post-row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+      <div class="post-row-body">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{% include note_label.html post=post %}</p>
+        {% if post.description and post.description != '' %}
+          <p class="post-row-description">{{ post.description | strip_html | truncate: 180 }}</p>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

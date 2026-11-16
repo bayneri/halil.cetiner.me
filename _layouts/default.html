@@ -4,15 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    {% if page.redirect_to %}
+      <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}" />
+      <link rel="canonical" href="{{ page.redirect_to | absolute_url }}" />
+    {% endif %}
     <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/images/favicon/apple-touch-icon-152x152.png' | relative_url }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}" />
     <link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | relative_url }}" />
     <script>
       (function () {
-        var saved = localStorage.getItem("theme");
+        var saved;
+        try { saved = localStorage.getItem("theme"); } catch (error) {}
         var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var theme = saved || (systemDark ? "dark" : "light");
+        var theme = saved === "light" || saved === "dark" ? saved : (systemDark ? "dark" : "light");
         document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
@@ -57,18 +62,22 @@
     <meta name="twitter:title" content="{{ page_title }}" />
     <meta name="twitter:description" content="{{ page_description }}" />
     <meta name="twitter:image" content="{{ social_image | absolute_url }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+    <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
-      <nav class="container nav">
+      <nav class="container nav" aria-label="Main navigation">
         <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
         <div class="nav-links">
-          <a href="{{ '/notes/' | relative_url }}">notes</a>
-          <a href="{{ '/about/' | relative_url }}">about</a>
+          <a href="{{ '/notes/' | relative_url }}"{% if page.url contains '/notes/' or page.layout == 'post' or page.url contains '/tag/' or page.url == '/tags/' %} aria-current="{% if page.url == '/notes/' %}page{% else %}location{% endif %}"{% endif %}>Notes</a>
           <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
             <span class="theme-icon" aria-hidden="true"></span>
           </button>
@@ -76,21 +85,13 @@
       </nav>
     </header>
 
-    <main class="container content">
+    <main id="main-content" class="container content" tabindex="-1">
       {{ content }}
     </main>
 
     <footer class="container site-footer">
-      <div class="footer-row">
-        <p>© {{ "now" | date: "%Y" }} {{ site.title }}</p>
-        <div class="social-links">
-          <a href="https://x.com/bayneri" target="_blank" rel="noreferrer">X</a>
-          <a href="https://www.linkedin.com/in/cetinerhalil" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/bayneri" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://notermsnoconditions.com/" target="_blank" rel="noreferrer">Terms</a>
-          <a href="mailto:halil@cetiner.me">Email</a>
-        </div>
-      </div>
+      <p>© {{ "now" | date: "%Y" }} {{ site.title }}</p>
+      <a href="https://notermsnoconditions.com/" target="_blank" rel="noreferrer">Terms</a>
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -106,47 +107,6 @@
           throwOnError: false
         });
       });
-    </script>
-    <script>
-      (function () {
-        var key = "theme";
-        var root = document.documentElement;
-        var btn = document.getElementById("theme-toggle");
-        var mq = window.matchMedia("(prefers-color-scheme: dark)");
-
-        function systemTheme() {
-          return mq.matches ? "dark" : "light";
-        }
-
-        function apply(theme) {
-          root.setAttribute("data-theme", theme);
-          if (!btn) return;
-          var next = theme === "dark" ? "light" : "dark";
-          btn.setAttribute("aria-label", "Switch to " + next + " mode");
-          var icon = btn.querySelector(".theme-icon");
-          if (icon) {
-            icon.setAttribute("data-theme", theme);
-          }
-        }
-
-        var saved = localStorage.getItem(key);
-        apply(saved || systemTheme());
-
-        if (btn) {
-          btn.addEventListener("click", function () {
-            var current = root.getAttribute("data-theme") || systemTheme();
-            var next = current === "dark" ? "light" : "dark";
-            localStorage.setItem(key, next);
-            apply(next);
-          });
-        }
-
-        mq.addEventListener("change", function () {
-          if (!localStorage.getItem(key)) {
-            apply(systemTheme());
-          }
-        });
-      })();
     </script>
   </body>
 </html>
